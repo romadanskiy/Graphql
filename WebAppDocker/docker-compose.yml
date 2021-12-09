@@ -1,11 +1,14 @@
 ﻿services:
 
   web1:
+    build:
+      dockerfile: Dockerfile
     image: 'wa7'
     ports:
       - "8080:80"
   web2:
+    build:
+      dockerfile: Dockerfile
     image: 'wa7'
     ports:
-      - "8090:80"-+
-        
+      - "8090:80"
