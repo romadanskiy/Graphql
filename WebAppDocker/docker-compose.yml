@@ -1,14 +1,9 @@
 ﻿services:
 
-  web1:
+  gateway:
     build:
+      context: ./ItisMicrosevices.Gateway
       dockerfile: Dockerfile
-    image: 'wa7'
+    image: 'gateway'
     ports:
-      - "8080:80"
-  web2:
-    build:
-      dockerfile: Dockerfile
-    image: 'wa7'
-    ports:
-      - "8090:80"
+      - 80:80

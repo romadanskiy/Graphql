@@ -10,12 +10,12 @@ RUN dotnet restore
 
 COPY . .
 WORKDIR "/src"
-RUN dotnet build "WebAppDocker.csproj" -c Release -o /app/build
+RUN dotnet build "ItisMicrosevices.Gateway.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "WebAppDocker.csproj" -c Release -o /app/publish
+RUN dotnet publish "ItisMicrosevices.Gateway.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "WebAppDocker.dll"]
+ENTRYPOINT ["dotnet", "ItisMicrosevices.Gateway.dll"]
