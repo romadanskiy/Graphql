@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppDocker", "WebAppDocker\WebAppDocker.csproj", "{84AA6226-AEC2-4872-9552-95C4EE510276}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HT", "HT\HT.csproj", "{632D9B5F-62D7-4B09-B490-88A7C786187A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CT", "CT\CT.csproj", "{4297D21E-485D-406C-9387-B215FA828ACC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{84AA6226-AEC2-4872-9552-95C4EE510276}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84AA6226-AEC2-4872-9552-95C4EE510276}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84AA6226-AEC2-4872-9552-95C4EE510276}.Release|Any CPU.Build.0 = Release|Any CPU
+		{632D9B5F-62D7-4B09-B490-88A7C786187A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{632D9B5F-62D7-4B09-B490-88A7C786187A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{632D9B5F-62D7-4B09-B490-88A7C786187A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{632D9B5F-62D7-4B09-B490-88A7C786187A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4297D21E-485D-406C-9387-B215FA828ACC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4297D21E-485D-406C-9387-B215FA828ACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4297D21E-485D-406C-9387-B215FA828ACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4297D21E-485D-406C-9387-B215FA828ACC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
