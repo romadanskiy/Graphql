@@ -21,7 +21,7 @@ namespace HT
         {
             services
                 .AddGraphQLServer()
-                .AddQueryType<Query>();
+                .AddQueryType<QueryType>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -31,7 +31,7 @@ namespace HT
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>

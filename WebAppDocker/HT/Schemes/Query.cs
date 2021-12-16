@@ -3,14 +3,14 @@ using HT.Models;
 
 namespace HT.Schemes;
 
-public abstract class Query
+public class Query
 {
-    public Device GetDevice() => new Device()
+    public Device GetDevice() => new()
     {
         Name = "Phone",
-        Category = new Categories
+        Category = new Category
         {
-            Category = "Phones"
+            CategoryName = "Phones"
         },
         Id = Guid.NewGuid()
     };
