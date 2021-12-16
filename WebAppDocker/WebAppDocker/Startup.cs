@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WebAppDocker.SchemaStitching;
+using WebAppDocker.SchemaStitching.Query;
 
 namespace WebAppDocker
 {
@@ -23,13 +24,14 @@ namespace WebAppDocker
             services.AddRazorPages();
 
             services.AddHttpClient(WellKnownSchemaNames.Phones,
-                c => c.BaseAddress = new Uri("localhost:8081/graphql"));
+                c => c.BaseAddress = new Uri("http://localhost:8081/graphql"));
             services.AddHttpClient(WellKnownSchemaNames.Devices,
-                c => c.BaseAddress = new Uri("localhost:8082/graphql"));
+                c => c.BaseAddress = new Uri("http://localhost:8082/graphql"));
 
             services.AddGraphQLServer()
                 .AddRemoteSchema(WellKnownSchemaNames.Phones)
-                .AddRemoteSchema(WellKnownSchemaNames.Devices);
+                .AddRemoteSchema(WellKnownSchemaNames.Devices)
+                .AddQueryType<QueryType>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
