@@ -22,7 +22,7 @@ services:
     networks:
       - my-network
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - API_URL=Api:80
   
   hc:
     build:
@@ -33,7 +33,7 @@ services:
     networks:
       - my-network
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - API_URL=Api:80
         
 networks:
   my-network:
