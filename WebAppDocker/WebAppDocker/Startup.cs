@@ -23,10 +23,10 @@ namespace WebAppDocker
             services.AddRazorPages();
 
             services.AddHttpClient(WellKnownSchemaNames.Phones,
-                c => c.BaseAddress = new Uri("8081:80/graphql"));
+                c => c.BaseAddress = new Uri("localhost:8081/graphql"));
             services.AddHttpClient(WellKnownSchemaNames.Devices,
-                c => c.BaseAddress = new Uri("8082:80/graphql"));
-            
+                c => c.BaseAddress = new Uri("localhost:8082/graphql"));
+
             services.AddGraphQLServer()
                 .AddRemoteSchema(WellKnownSchemaNames.Phones)
                 .AddRemoteSchema(WellKnownSchemaNames.Devices);
@@ -49,11 +49,10 @@ namespace WebAppDocker
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            app.UseRouting();
+            app.UseRouting().UseEndpoints(endpoints => { endpoints.MapGraphQL(); })
+                .UseEndpoints(endpoints => { endpoints.MapRazorPages(); });
 
             app.UseAuthorization();
-
-            app.UseEndpoints(endpoints => { endpoints.MapRazorPages(); });
         }
     }
 }
