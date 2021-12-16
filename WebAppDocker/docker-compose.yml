@@ -8,6 +8,8 @@ services:
       context: .
     ports:
       - "8080:80"
+    networks:
+      - my-network
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
    
@@ -17,6 +19,8 @@ services:
       context: .
     ports:
       - "8081:80" 
+    networks:
+      - my-network
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
   
@@ -26,5 +30,11 @@ services:
       context: .
     ports:
       - "8082:80"
+    networks:
+      - my-network
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+        
+networks:
+  my-network:
+    external: true

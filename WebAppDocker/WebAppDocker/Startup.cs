@@ -30,7 +30,9 @@ namespace WebAppDocker
 
             services.AddGraphQLServer()
                 .AddRemoteSchema(WellKnownSchemaNames.Phones)
-                .AddRemoteSchema(WellKnownSchemaNames.Devices)
+                .AddRemoteSchema(WellKnownSchemaNames.Devices);
+
+            services.AddGraphQLServer()
                 .AddQueryType<QueryType>();
         }
 
@@ -50,9 +52,10 @@ namespace WebAppDocker
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            
+
             app.UseRouting()
-                .UseEndpoints(endpoints => { endpoints.MapGraphQL(); })
+                .UseEndpoints(endpoints => { endpoints.MapGraphQL(); });
+            app.UseRouting()
                 .UseEndpoints(endpoints => { endpoints.MapRazorPages(); });
 
             app.UseAuthorization();
