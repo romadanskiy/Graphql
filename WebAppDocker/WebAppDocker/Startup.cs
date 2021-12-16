@@ -23,19 +23,18 @@ namespace WebAppDocker
         {
             services.AddRazorPages();
             
-            services.AddGraphQLServer()
-                .AddQueryType<QueryType>();
 
             services.AddHttpClient(WellKnownSchemaNames.Phones,
-                c => c.BaseAddress = new Uri("http://localhost:8081/graphql"));
+                c => c.BaseAddress = new Uri("http://ch/graphql"));
             services.AddHttpClient(WellKnownSchemaNames.Devices,
-                c => c.BaseAddress = new Uri("http://localhost:8082/graphql"));
+                c => c.BaseAddress = new Uri("http://hc/graphql"));
 
             services.AddGraphQLServer()
-                .AddRemoteSchema(WellKnownSchemaNames.Phones)
-                .AddRemoteSchema(WellKnownSchemaNames.Devices);
+                .AddQueryType<QueryType>()
+                .AddRemoteSchema(WellKnownSchemaNames.Phones, ignoreRootTypes: true)
+                .AddRemoteSchema(WellKnownSchemaNames.Devices, ignoreRootTypes: true);
 
-          
+            // .AddTypeExtensionsFromFile("./Stitching.graphql");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

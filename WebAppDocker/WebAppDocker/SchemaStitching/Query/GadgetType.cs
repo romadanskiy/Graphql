@@ -15,9 +15,9 @@ namespace WebAppDocker.SchemaStitching.Query
                 .Field(f => f.Name)
                 .Type<StringType>();
 
-            descriptor
-                .Field(f => f.Category.CategoryName)
-                .Type<StringType>();
+            // descriptor
+            //     .Field(f => f.Category.CategoryName)
+            //     .Type<StringType>();
 
             descriptor
                 .Field(f => f.Model)

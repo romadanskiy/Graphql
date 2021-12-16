@@ -11,16 +11,12 @@ namespace WebAppDocker.SchemaStitching.Models
         public Items Manufacturer { get; set; } = null!;
 
         public string Name { get; set; } = null!;
-        public Category Category { get; set; } = null!;
+        // public Category Category { get; set; } = null!;
     }
 
     public class Items
     {
         public string Manufacturer { get; set; } = null!;
     }
-
-    public class Category
-    {
-        public string CategoryName { get; set; } = null!;
-    }
+    
 }

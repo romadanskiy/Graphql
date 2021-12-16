@@ -1,4 +1,4 @@
-﻿version: "3"
+version: "3"
 
 services:
 
@@ -9,7 +9,7 @@ services:
     ports:
       - "8080:80"
     networks:
-      - my-network
+      - default
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
    
@@ -20,7 +20,7 @@ services:
     ports:
       - "8081:80" 
     networks:
-      - my-network
+      - default
     environment:
       - API_URL=Api:80
   
@@ -31,10 +31,6 @@ services:
     ports:
       - "8082:80"
     networks:
-      - my-network
+      - default
     environment:
-      - API_URL=Api:80
-        
-networks:
-  my-network:
-    external: true
+      - API_URL=Api:80      
