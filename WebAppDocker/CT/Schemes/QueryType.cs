@@ -1,7 +1,6 @@
-﻿using CT.Schemes;
-using HotChocolate.Types;
+﻿using HotChocolate.Types;
 
-namespace HT.Schemes;
+namespace CT.Schemes;
 
 public class QueryType : ObjectType<Query>
 {
