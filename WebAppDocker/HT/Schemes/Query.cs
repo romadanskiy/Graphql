@@ -11,7 +11,6 @@ public class Query
         Category = new Category
         {
             CategoryName = "Phones"
-        },
-        Id = 1
+        }
     };
 }

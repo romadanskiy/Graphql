@@ -21,8 +21,15 @@ namespace WebAppDocker
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddHttpClient(WellKnownSchemaNames.Phones, c => c.BaseAddress = new Uri("8081:80/graphql"));
-            services.AddHttpClient(WellKnownSchemaNames.Devices, c => c.BaseAddress = new Uri("8082:80/graphql"));
+
+            services.AddHttpClient(WellKnownSchemaNames.Phones,
+                c => c.BaseAddress = new Uri("8081:80/graphql"));
+            services.AddHttpClient(WellKnownSchemaNames.Devices,
+                c => c.BaseAddress = new Uri("8082:80/graphql"));
+            
+            services.AddGraphQLServer()
+                .AddRemoteSchema(WellKnownSchemaNames.Phones)
+                .AddRemoteSchema(WellKnownSchemaNames.Devices);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
