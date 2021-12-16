@@ -1,20 +1,19 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
+﻿FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build-env
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-WORKDIR /src
-COPY ["CT/CT.csproj", "CT/"]
-RUN dotnet restore "CT/CT.csproj"
-COPY . .
-WORKDIR "/src/CT"
-RUN dotnet build "CT.csproj" -c Release -o /app/build
+COPY CT/*.csproj ./CT/
 
-FROM build AS publish
-RUN dotnet publish "CT.csproj" -c Release -o /app/publish
+WORKDIR /app/CT
+RUN dotnet restore
 
-FROM base AS final
 WORKDIR /app
-COPY --from=publish /app/publish .
+
+COPY CT/ ./CT/
+
+WORKDIR /app/CT
+RUN dotnet publish -c Release -o out
+
+FROM mcr.microsoft.com/dotnet/aspnet:5.0.9-focal-amd64 AS final
+WORKDIR /app
+COPY --from=build-env /app/CT/out ./
 ENTRYPOINT ["dotnet", "CT.dll"]

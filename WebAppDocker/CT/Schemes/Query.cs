@@ -12,6 +12,6 @@ public abstract class Query
         {
             Manufacturer = "USA"
         },
-        Id = Guid.NewGuid()
+        Id = 1
     };
 }

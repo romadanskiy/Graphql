@@ -12,6 +12,6 @@ public class Query
         {
             CategoryName = "Phones"
         },
-        Id = Guid.NewGuid()
+        Id = 1
     };
 }

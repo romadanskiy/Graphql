@@ -1,0 +1,24 @@
+﻿version: "3"
+
+services:
+
+  webapp:
+    build:
+      dockerfile: WebAppDocker/Dockerfile
+      context: .
+    ports:
+      - "8080:80"
+   
+  ch:
+    build:
+      dockerfile: CT/Dockerfile
+      context: .
+    ports:
+      - "8081:80" 
+  
+  hc:
+    build:
+      dockerfile: HT/Dockerfile
+      context: .
+    ports:
+      - "8082:80"
