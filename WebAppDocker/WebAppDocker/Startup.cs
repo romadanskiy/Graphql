@@ -50,8 +50,9 @@ namespace WebAppDocker
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
-            app.UseRouting().UseEndpoints(endpoints => { endpoints.MapGraphQL(); })
+            
+            app.UseRouting()
+                .UseEndpoints(endpoints => { endpoints.MapGraphQL(); })
                 .UseEndpoints(endpoints => { endpoints.MapRazorPages(); });
 
             app.UseAuthorization();
